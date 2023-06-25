@@ -17,8 +17,8 @@ assert = (a,b,msg='') =>
 	chai.assert.deepEqual a,b,msg
 	'ok'
 
-solve = (f,a,b) =>
-	for i in range 50
+solve = (f,a,b,n=50) =>
+	for i in range n
 		x = (a+b) / 2
 		if f(x) == 0 then return x
 		if f(a)*f(x) < 0 then b = x else a = x
@@ -216,7 +216,7 @@ fib = (x) -> if x<=0 then 1 else fib(x-1) + fib(x-2)
 21 == fib 6
 
 f = (x) => 9**x - 6**x - 4**x
-solve f,0,2
+solve f,0,2,50
 
 """
 		else # Javascript
@@ -285,7 +285,7 @@ fib = (x) => x<=0 ? 1 : fib(x-1) + fib(x-2)
 
 f = (x) => 9**x - 6**x - 4**x
 
-solve(f,0,2)
+solve(f,0,2,50)
 
 """
 		# storeAndGoto memory,page
