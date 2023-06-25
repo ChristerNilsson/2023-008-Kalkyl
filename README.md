@@ -1,6 +1,6 @@
 # 008-Kalkyl
 
-[Try it!](https://christernilsson.github.io/Lab/2018/008-Kalkyl)
+[Try it!](https://christernilsson.github.io/2023/008-Kalkyl)
 
 * Here you can test your one-liners!
 * Also suitable as a calculator
