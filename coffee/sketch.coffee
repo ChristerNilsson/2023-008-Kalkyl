@@ -17,7 +17,7 @@ assert = (a,b,msg='') =>
 	chai.assert.deepEqual a,b,msg
 	'ok'
 
-solve = (f,a,b,n=50) =>
+solve = (f,a,b,n=20) =>
 	for i in range n
 		x = (a+b) / 2
 		if f(x) == 0 then return x
@@ -292,20 +292,16 @@ solve(f,0,2,50)
 		encode()
 
 	page.addAction 'Help', -> window.open "https://github.com/ChristerNilsson/2023-008-Kalkyl#008-kalkyl"
+	page.addAction 'Hide', -> page.display()
+	page.addAction 'URL', -> encode()
 
-	page.addAction 'Hide', -> 
-		page.display()
-
-	page.addAction 'URL', -> 
-		encode()
-
-	page.addAction ANGLE_MODE[config.angleMode], -> 
+	page.addAction ANGLE_MODE[config.angleMode], ->
 		config.angleMode = 1 - config.angleMode
 		page.actions[5][0] = ANGLE_MODE[config.angleMode]
 		makeAnswer()
 		storeAndGoto memory,page
 
-	page.addAction LANGUAGE[config.language], -> 
+	page.addAction LANGUAGE[config.language], ->
 		config.language = 1 - config.language
 		page.actions[6][0] = LANGUAGE[config.language]
 		storeAndGoto memory,page
@@ -315,12 +311,12 @@ solve(f,0,2,50)
 		page.actions[7][0] = DISPLAY_MODE[config.displayMode]
 		storeAndGoto memory,page
 
-	page.addAction 'Less', -> 
-		if config.digits>1 then config.digits--
+	page.addAction 'Less', ->
+		if config.digits > 1 then config.digits--
 		storeAndGoto memory,page
 
-	page.addAction 'More', -> 
-		if config.digits<17 then config.digits++
+	page.addAction 'More', ->
+		if config.digits < 17 then config.digits++
 		storeAndGoto memory,page
 
 	page.display()
