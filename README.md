@@ -11,18 +11,14 @@
 	* E-3 milli, E-6 mikro, E-9 nano, E-12 pico ...
 	* E3  kilo,  E6  mega,  E9  giga, E12  tera ...
 
-## Compare with pluto.jl
-
-[Pluto.jl](https://www.youtube.com/watch?v=IAF8DjrQSSk&ab_channel=TheJuliaProgrammingLanguage)
-
 ## Clear
 Clears the calculator
 
 ## Samples
 Show the following example.
 
-## Reference
-Link to relevant Javascript documentation
+## Help
+Link to this page
 
 ## Hide
 Hides the keyboard on smartphones
@@ -130,6 +126,7 @@ fib = (x) -> if x<=0 then 1 else fib(x-1) + fib(x-2)
 13 == fib 5
 21 == fib 6
 
-# solve f,a,b
-Tries to find a root between a and b
+f = 9**x - 6**x -4**x
+solve f,1,2,5
+solve f,1,2,50
 ```

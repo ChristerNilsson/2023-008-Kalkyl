@@ -291,7 +291,7 @@ solve(f,0,2,50)
 		# storeAndGoto memory,page
 		encode()
 
-	page.addAction 'Reference', -> window.open "https://www.w3schools.com/jsref/default.asp"
+	page.addAction 'Help', -> window.open "https://github.com/ChristerNilsson/2023-008-Kalkyl#008-kalkyl"
 
 	page.addAction 'Hide', -> 
 		page.display()
