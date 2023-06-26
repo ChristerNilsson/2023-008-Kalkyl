@@ -90,11 +90,11 @@ solve_bin f,a,b,n=50
 * n = number of iterations
 
 ## solve_nr (Newton-Raphson)
-solve_nr f,a,n=10
+solve_nr f,a,n=10,h=0.001
 * f = function
 * a = initial x
 * n = number of iterations
-* h = always 0.001
+* h = step used in differentiation
 
 ## More examples
 

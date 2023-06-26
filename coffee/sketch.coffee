@@ -27,23 +27,13 @@ solve_bin = (f,a,b,n=20) =>
 precision = 0.001
 prevGuess = 0
 
-derivative = (f) =>
-	h = 0.001
-	(x) => (f(x + h) - f(x - h)) / (2 * h)
+derivative = (f,h) => (x) => (f(x + h) - f(x - h)) / (2 * h)
 
-solve_nr = (f,guess=0,n=10) =>
-	deriv = derivative f
+solve_nr = (f,x=0,n=10,h=0.001) =>
+	fprim = derivative f,h
 	for i in range n
-		guess = guess - f(guess) / deriv guess
-	guess
-	#if guess == null || guess == undefined then guess = 0
-	# if Math.abs(prevGuess - guess) > precision
-	# 	prevGuess = guess
-	# 	approx = guess - f(guess) / derivative(f)(guess)
-	# 	console.log guess
-	# 	solve_nr f,approx
-	# else
-	# 	guess
+		x -= f(x) / fprim x
+	x
 
 findLineNo = (e) =>
 	lines = e.stack.split '\n'
