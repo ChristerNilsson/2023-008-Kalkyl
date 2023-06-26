@@ -24,13 +24,8 @@ solve_bin = (f,a,b,n=20) =>
 		if f(a)*f(x) < 0 then b = x else a = x
 	[a,b]
 
-precision = 0.001
-prevGuess = 0
-
-derivative = (f,h) => (x) => (f(x + h) - f(x - h)) / (2 * h)
-
 solve_nr = (f,x=0,n=10,h=0.001) =>
-	fprim = derivative f,h
+	fprim = (x) => (f(x + h) - f(x - h)) / (2 * h)
 	for i in range n
 		x -= f(x) / fprim x
 	x
