@@ -11,6 +11,24 @@
 	* E-3 milli, E-6 mikro, E-9 nano, E-12 pico ...
 	* E3  kilo,  E6  mega,  E9  giga, E12  tera ...
 
+## operations
+```js
++  add
+*  mul
+-  sub
+/  div
+** power
+[3,7]      lists
+{a:1, b:3} objects
+(x) => x*x functions (oneliners only)
+```
+
+## functions
+```
+solve_bin
+solve_nr
+```
+
 ## Clear
 Clears the calculator
 
@@ -62,6 +80,21 @@ speed = distance / time
 Change distance to 20
 
 Also handles strings, lists, objects, functions
+
+## solve_bin (binary search)
+
+solve_bin f,a,b,n=50
+* f = function
+* a = lower x
+* b = upper x
+* n = number of iterations
+
+## solve_nr (Newton-Raphson)
+solve_nr f,a,n=10
+* f = function
+* a = initial x
+* n = number of iterations
+* h = always 0.001
 
 ## More examples
 
@@ -127,6 +160,6 @@ fib = (x) -> if x<=0 then 1 else fib(x-1) + fib(x-2)
 21 == fib 6
 
 f = 9**x - 6**x -4**x
-solve f,1,2,5
-solve f,1,2,50
+solve_bin f,1,2,5
+solve_bin f,1,2,50
 ```

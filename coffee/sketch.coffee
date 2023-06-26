@@ -17,12 +17,33 @@ assert = (a,b,msg='') =>
 	chai.assert.deepEqual a,b,msg
 	'ok'
 
-solve = (f,a,b,n=20) =>
+solve_bin = (f,a,b,n=20) =>
 	for i in range n
 		x = (a+b) / 2
 		if f(x) == 0 then return x
 		if f(a)*f(x) < 0 then b = x else a = x
 	[a,b]
+
+precision = 0.001
+prevGuess = 0
+
+derivative = (f) =>
+	h = 0.001
+	(x) => (f(x + h) - f(x - h)) / (2 * h)
+
+solve_nr = (f,guess=0,n=10) =>
+	deriv = derivative f
+	for i in range n
+		guess = guess - f(guess) / deriv guess
+	guess
+	#if guess == null || guess == undefined then guess = 0
+	# if Math.abs(prevGuess - guess) > precision
+	# 	prevGuess = guess
+	# 	approx = guess - f(guess) / derivative(f)(guess)
+	# 	console.log guess
+	# 	solve_nr f,approx
+	# else
+	# 	guess
 
 findLineNo = (e) =>
 	lines = e.stack.split '\n'
@@ -216,7 +237,8 @@ fib = (x) -> if x<=0 then 1 else fib(x-1) + fib(x-2)
 21 == fib 6
 
 f = (x) => 9**x - 6**x - 4**x
-solve f,0,2,50
+solve_bin f,0,2,50
+solve_nr f,1
 
 """
 		else # Javascript
@@ -285,7 +307,8 @@ fib = (x) => x<=0 ? 1 : fib(x-1) + fib(x-2)
 
 f = (x) => 9**x - 6**x - 4**x
 
-solve(f,0,2,50)
+solve_bin(f,0,2,50)
+solve_nr(f,1)
 
 """
 		# storeAndGoto memory,page
